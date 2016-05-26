@@ -14,3 +14,5 @@ trucksRouter.route('/')
       res.send(trucks);
     });
   });
+
+  module.exports = trucksRouter;
