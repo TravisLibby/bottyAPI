@@ -5,25 +5,25 @@ var app     = express();
 
 app.get('/trucks', function(req, res){
 
-  var url = 'http://offthegrid.com/wp-admin/admin-ajax.php?action=otg_market&delta=0&market=2&event=0';
+  var url = 'http://offthegrid.com/event/2/';
   
   request(url, function(error, response, html){
 
     if (!error){      
       var $ = cheerio.load(html);
       var trucksArr = [];  
-      var $trucks = $('.otg-market-data-vendors-names').first().children();
+      var $trucks = $('.vendors-grid');
 
-      $trucks.each(function(index) {
-        trucksArr.push($(this).text());
-      });
+      // $trucks.each(function(index) {
+      //   trucksArr.push($(this).text());
+      // });
     }
 
-    res.send(trucksArr);
+    res.send(trucks);
   
   });
 });
 
 app.listen(process.env.PORT || 3000, function() {
-  console.log('Listening on port 8081...'); 
+  console.log('Listening...'); 
 });
