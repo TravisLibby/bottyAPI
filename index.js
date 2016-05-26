@@ -12,14 +12,14 @@ app.get('/trucks', function(req, res){
     if (!error){      
       var $ = cheerio.load(html);
       var trucksArr = [];  
-      var $trucks = $('.vendors-grid');
+      // var $trucks = $('.vendors-grid');
 
       // $trucks.each(function(index) {
       //   trucksArr.push($(this).text());
       // });
     }
 
-    res.send(trucks);
+    res.send(html);
   
   });
 });
