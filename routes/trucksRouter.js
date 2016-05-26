@@ -10,9 +10,9 @@ trucksRouter.route('/')
       console.log(typeof data);
       data = JSON.parse(data.body);
       data.MarketDetail.Events[0].Vendors.forEach(function(value, index) {
-        trucks.push(value.name);
+        trucks.push('<a href="' + value.website + '">' + value.name + '</a><br>');
       });
-      res.send(trucks);
+      res.send(trucks.join(', '));
     });
   });
 
