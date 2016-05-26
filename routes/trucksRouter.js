@@ -1,8 +1,9 @@
 var express = require('express');
 var trucksRouter = express.Router();
+var request = require('request');
 
 trucksRouter.route('/')
-  .get(function() {
+  .get(function(req, res) {
     var url = 'http://offthegrid.com/otg-api/passthrough/markets/2.json/';
     var trucks = [];
     request(url, function(err, data) {
